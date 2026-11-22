@@ -1,11 +1,18 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+// Credential that we get from the post method form vue injection 
 const username = ref('')
 const password = ref('')
 
+// We need the router to redirect to the homepage
+const router = useRouter();
+
+// basic ref
 const reponseLogin = ref(null)
 
+// Function that call the API and check the credential 
 async function envoyerLogin() {
   const res = await fetch('http://localhost:8000/user/login', {
     method: 'POST',
@@ -18,7 +25,12 @@ async function envoyerLogin() {
     }),
   })
 
-  reponseLogin.value = await res.json()
+  // If the API return us a good value
+  if (res.status == 200){
+    router.push({ name: 'home' })
+  } else {
+    reponseLogin.value = "Erreur lors de la connection -> Veuillez re-essayer"
+  }
 }
 </script>
 

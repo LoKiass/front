@@ -1,10 +1,10 @@
 <script setup>
-import LoginPage from './components/LoginPage.vue'
 </script>
 
 <template>
   <main>
-    <LoginPage></LoginPage>
+<!--     The router will directly redirect to the login page in any case -->
+    <router-view />
   </main>
 </template>
 
