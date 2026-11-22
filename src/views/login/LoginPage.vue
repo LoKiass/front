@@ -43,6 +43,7 @@ async function envoyerLogin() {
       <input type="password" v-model="password" placeholder="Password" required><br>
 
       <button type="submit">Valider</button>
+      <a href="createLogin">Aucun compte ? Inscrivez-vous</a>
     </form>
 
     <pre v-if="reponseLogin">{{ JSON.stringify(reponseLogin, null, 2) }}</pre>
