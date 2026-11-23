@@ -25,11 +25,13 @@ async function envoyerLogin() {
     }),
   })
 
+
   // If the API return us a good value
-  if (res.status == 200){
+  if (res.status == 201){
     router.push({ name: 'home' })
   } else {
-    reponseLogin.value = "Erreur lors de la connection -> Veuillez re-essayer"
+    const data = await res.json()
+    reponseLogin.value = data.error
   }
 }
 </script>
@@ -46,6 +48,6 @@ async function envoyerLogin() {
       <a href="createLogin">Aucun compte ? Inscrivez-vous</a>
     </form>
 
-    <pre v-if="reponseLogin">{{ JSON.stringify(reponseLogin, null, 2) }}</pre>
+    <pre v-if="reponseLogin">{{ reponseLogin }}</pre>
   </div>
 </template>
