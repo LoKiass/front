@@ -61,8 +61,8 @@ async function createLogin() {
 
     <form @submit.prevent="createLogin">
       <input type="email" v-model="email" placeholder="E-mail" required><br>  
-      <input type="text" v-model="username" placeholder="Username" required><br>
-      <input type="password" v-model="password" placeholder="Password" required><br>
+      <input type="text" v-model="username" placeholder="Nom d'utilisateur" required><br>
+      <input type="password" v-model="password" placeholder="Mots de passe (Minimum 8)" required><br>
       <input type="password" v-model="repassword" placeholder="Re-inserer le mors de passe"><br>
 
       <button type="submit">Valider</button>
